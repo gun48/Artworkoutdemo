@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/up">
+        <artwork.java.ProgressBar android:layout_width="match_parent"
+                                android:layout_height="10dp" android:id="@+id/progressbar"/>
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp" app:srcCompat="@drawable/ic_undo_grey600_36dp"
+                android:id="@+id/undo"
+                android:visibility="visible"/>
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp" app:srcCompat="@drawable/ic_redo_grey600_36dp"
+                android:layout_toEndOf="@+id/undo"
+                android:id="@+id/redo"
+                android:visibility="visible"/>
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp" app:srcCompat="@drawable/ic_done_black_36dp"
+                android:layout_toEndOf="@+id/redo"
+                android:id="@+id/status"
+                android:visibility="gone"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/status"
+                android:textSize="20sp"
+                android:visibility="gone"
+                android:id="@+id/text"/>
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp" app:srcCompat="@drawable/ic_arrow_back_grey600_36dp"
+                android:layout_toStartOf="@+id/forward"
+                android:id="@+id/back"
+                android:visibility="visible"/>
+        <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp" app:srcCompat="@drawable/ic_arrow_forward_black_36dp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/forward"
+                android:visibility="visible"/>
+
+
+    </RelativeLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal" android:layout_below="@+id/up" android:id="@+id/middle">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1">
+            <Switch
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/switch1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:checked="false"
+                    android:textSize="16sp"
+                    android:text="color / shader" />
+            <Switch
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/switch2"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:checked="true"
+                    android:textSize="16sp"
+                    android:text="regular / random" />
+            <Switch
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/switch3"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:checked="true"
+                    android:textSize="16sp"
+                    android:text="show tip" />
+            <SeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1">
+            <artwork.java.Preview
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toEndOf="@+id/seekBar1"
+                    android:id="@+id/preview"/>
+        </LinearLayout>
+    </LinearLayout>
+    <artwork.java.GameView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/middle"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/view2"/>
+</RelativeLayout>
+
+
