@@ -99,7 +99,7 @@ class Task {
             canvasGlobal.drawPath(pathTips, paint)
         }
     }
-    fun updateProgress(x: Int, y: Int) {
+    fun updateProgress(x: Int, y: Int) : Int{
         val sz = tipsCenters.size
         var cutlen = App.getInstance().getInt(c.seek1, 45).toFloat()
         if (cutlen < 10) cutlen = 10f
@@ -116,7 +116,6 @@ class Task {
                 }
             }
         }
+        return visited * 100 / visitedArr.size
     }
-    val progress: Int
-        get() = visited * 100 / visitedArr.size
 }

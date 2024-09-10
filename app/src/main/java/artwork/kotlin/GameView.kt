@@ -127,12 +127,13 @@ class GameView : AppCompatImageView {
         } else if (action != 2) {
             return false
         } else { /// 2 = ACTION_MOVE
-            if (x!=sx && y!=sy) {
+            if (x!=sx || y!=sy) {
                 path.quadTo(sx, sy, (sx + x) / 2.0f, (sy + y) / 2.0f)
                 sx = x
                 sy = y
-                task?.updateProgress(x.toInt(), y.toInt())
-                task?.let { progressListener.updateProgress(it.progress) }
+                task?.let {
+                    progressListener.updateProgress(it.updateProgress(x.toInt(), y.toInt()))
+                }
             }
         }
         invalidate()

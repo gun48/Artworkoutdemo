@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, ProgressListener
         } else if (R.id.switch3 == id) {
             App.getInstance().putInt(c.option3, v)
             gameView.updateTips()
-            seekBar1.isEnabled = 1 == v
+            seekBar1.isEnabled = isChecked
         }
     }
 
